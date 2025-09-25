@@ -30,6 +30,25 @@ k ∈ {0..25} → 26 khóa.
 -Frequency analysis: so sánh phân bố chữ cái (ví dụ E thường gặp trong tiếng Anh).
 
 -Rất dễ.
+## Ảnh minh họa mã hóa
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fac60ed2-f336-45c4-b10c-4362eca8193f" />
+## Ảnh minh họa giải mã
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1ad3b2ae-7e9c-41fd-aca8-1d9646f88961" />
+## Giải thích cách mã hóa
+-Công thức: E(p) = (p + k) mod 26
+-Khóa: k = 3
+-Cách làm (tóm tắt): với mỗi chữ cái, dịch tiến 3 vị trí trong bảng A..Z (a→d, b→e, ...). Ký tự không phải chữ để nguyên (khoảng trắng giữ nguyên).
+-Ví dụ vài ký tự:
+d → g (d +3 = g)
+u → x
+o → r
+n → q
+g → j
+khoảng trắng → giữ nguyên
+t → w, h → k, i → l
+l → o, y → b
+Ciphertext:
+gxrqj wkl ob
 # Affine cipher
 ## Tên
 
@@ -57,6 +76,26 @@ b ∈ {0..25}
 Brute-force trên 312 khả năng.
 
 Frequency analysis: vì là affine, chỉ là linear transform trên alphabet; phân bố tỉ lệ giữ nguyên dạng nên có thể dùng để suy a,b.
+## Ảnh minh họa mã hóa
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fc0bb003-c938-4d39-9f39-6b2125faaba0" />
+## Ảnh minh họa giải mã
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4fdd4d61-ac0e-4a25-a95d-de5f0c3ddccb" />
+## Giải thích cách mã hóa
+Công thức: E(p) = (a * p + b) mod 26 (p: 0..25 với a=5, b=8). Điều kiện: gcd(a,26)=1 — ở đây OK.
+-Khóa: a=5, b=8
+-Cách làm (tóm tắt): biến đổi tuyến tính mỗi chữ cái (A=0 → Z=25).
+-Ví dụ vài ký tự (tính theo p = chữ số của chữ):
+d (3) → (5*3 + 8) mod26 = (15+8)=23 → 23→x
+u (20) → (5*20+8)=108 mod26 = 108-104=4 → e
+o (14) → (5*14+8)=78 mod26 = 78-52=26 → 0 → a
+n (13) → (5*13+8)=73 mod26 = 73-52=21 → v
+g (6) → (5*6+8)=38 mod26 = 12 → m
+khoảng trắng giữ nguyên
+t→z, h→r, i→w
+l→l (thật ra tính ra l), y→y (tùy tính; kết quả ở đây là ly)
+Ciphertext:
+xeavm zrw ly
+
 # Permutation cipher (Hoán vị)
 
 Mình hiểu "Hoán vị" ở đây là substitution bằng hoán vị cố định của bảng chữ cái, hoặc có thể là block permutation (chia block rồi hoán vị các vị trí). Mình trình bày cả 2 dạng ngắn.
@@ -88,6 +127,14 @@ Mình hiểu "Hoán vị" ở đây là substitution bằng hoán vị cố đ�
 -Cách phá mã
 
 -Dùng tần suất n-gram, xác suất ngôn ngữ, hill-climbing hoặc dùng ký tự nguyên vẹn (crib) — vì transposition giữ nguyên tần suất chữ cái nhưng thay đổi vị trí.
+## Ảnh minh họa mã hóa
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dc4cfc30-01d6-47b2-97cf-a879edcf14c9" />
+
+
+## Ảnh minh họa giải mã
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5ae72039-e2eb-4aee-a4bf-17861cc8af8d" />
+
+
 # Vigenère cipher
 ## Tên
 
@@ -114,6 +161,12 @@ Friedman test: dùng chỉ số tương đồng (IC) để ước lượng m.
 Sau khi biết m, phân chia ciphertext thành m nhóm (caesar trên mỗi nhóm) và dùng frequency analysis để suy key từng nhóm.
 
 Nếu key ngắn hoặc text dài, dễ phá.
+## Ảnh minh họa mã hóa
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3a61c1d6-bbfa-4cd2-99f5-f9d33f512cdc" />
+
+## Ảnh minh họa giải mã
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dd20849f-71fa-455f-afb9-cf942fbf04e8" />
+
 # Playfair cipher
 ## Tên
 
@@ -146,4 +199,9 @@ Dùng digraph frequency analysis (phân tích cặp chữ).
 Thử tìm crib (từ biết trước) hoặc dùng heuristic search/hill-climbing để tối ưu bảng.
 
 Chứa nhiều thông tin dạng bigram nên có thể bị tấn công bằng thuật toán tự động.
-# 
+## Ảnh minh họa mã hóa
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a86f3f22-5b5a-4378-941f-06907b093945" />
+
+## Ảnh minh họa giải mã
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2bdd32a6-d907-43c8-ba0d-913d1d6b416e" />
+
