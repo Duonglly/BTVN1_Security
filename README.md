@@ -1,7 +1,7 @@
 
 # BTVN1_Security
 # BÀI TẬP 1: TÌM HIỂU CÁC PHƯƠNG PHÁP MÃ HOÁ CỔ ĐIỂN Caesar Affine Hoán vị Vigenère Playfair Với mỗi phương pháp, hãy tìm hiểu:  Tên gọi Thuật toán mã hoá, thuật toán giải mã Không gian khóa Cách phá mã (mà không cần khoá). Cài đặt thuật toán mã hoá và giải mã bằng code C++ và bằng html+css+javascript
-# Các bước làm
+# Các bước làm:
 # Caesar cipher
 ## Tên
 
@@ -49,6 +49,7 @@ t → w, h → k, i → l
 l → o, y → b
 Ciphertext:
 gxrqj wkl ob
+
 # Affine cipher
 ## Tên
 
@@ -76,10 +77,12 @@ b ∈ {0..25}
 Brute-force trên 312 khả năng.
 
 Frequency analysis: vì là affine, chỉ là linear transform trên alphabet; phân bố tỉ lệ giữ nguyên dạng nên có thể dùng để suy a,b.
+
 ## Ảnh minh họa mã hóa
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fc0bb003-c938-4d39-9f39-6b2125faaba0" />
 ## Ảnh minh họa giải mã
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4fdd4d61-ac0e-4a25-a95d-de5f0c3ddccb" />
+
 ## Giải thích cách mã hóa
 Công thức: E(p) = (a * p + b) mod 26 (p: 0..25 với a=5, b=8). Điều kiện: gcd(a,26)=1 — ở đây OK.
 -Khóa: a=5, b=8
